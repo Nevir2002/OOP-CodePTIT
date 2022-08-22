@@ -2,7 +2,7 @@ package codeptit;
 
 import java.util.Scanner;
 
-public class AA_Test {
+public class J03021 {
 
     public static void main(String arg[]){
 

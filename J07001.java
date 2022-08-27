@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public class AA_Test {
+public class J07001 {
 
     public static void main(String arg[]){
 

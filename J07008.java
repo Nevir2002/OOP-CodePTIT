@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.math.BigInteger;
 import java.util.*;
 
-public class AA_Test {
+public class J07008 {
 
     static Vector<String> res = new Vector<>();
     
@@ -13,10 +13,10 @@ public class AA_Test {
 
         try{
             
-            File f = new File("D:\\D20\\JunkyardJv\\CodePTIT\\src\\DATA.in");
+            File f = new File("DAYSO.in");
             Scanner sc = new Scanner(f);
             int n = sc.nextInt();
-            int[] a = new int[4];
+            int[] a = new int[n];
             for(int i = 0; i < n; i++) a[i] = sc.nextInt();
             
             for(int i = 0; i < n-1; i++){

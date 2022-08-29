@@ -37,7 +37,7 @@ class MH implements Comparable<MH>{
     
 }
 
-public class AA_Test {
+public class J07050 {
 
     public static void main(String[] args){
         

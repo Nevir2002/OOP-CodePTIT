@@ -8,7 +8,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.*;
 
-public class AA_Test {
+public class J07015 {
 
     public static void main(String arg[]){
 

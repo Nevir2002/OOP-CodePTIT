@@ -8,7 +8,7 @@ import java.util.*;
 
 class bd implements Comparator<bd>{
     
-    String id,name,avg,rate;
+    String id,name,avg;
     static int cnt = 1;
     
     bd(){}
@@ -20,12 +20,7 @@ class bd implements Comparator<bd>{
         
         this.name = fix(name);
         
-        avg = String.format("%.2f",(a*0.25+b*0.35+c*0.4));
-        double x = Double.parseDouble(avg);
-        if(x >= 8) rate = "GIOI";
-        else if(x >= 6.5) rate = "KHA";
-        else if(x >= 5) rate = "TRUNG BINH";
-        else rate = "KEM";
+        avg = String.format("%.2f",(a*3+b*3+c*2)/(3+3+2));
         
     }
 
@@ -50,15 +45,15 @@ class bd implements Comparator<bd>{
         
     }
     
-    public void print(){
+    public void print(int n){
         
-        System.out.println(id + " " + name + " " + avg + " " + rate);
+        System.out.println(id + " " + name + " " + avg + " " + n);
         
     }
     
 }
 
-public class AA_Test {
+public class J07054 {
 
     public static void main(String arg[]){
  
@@ -75,9 +70,24 @@ public class AA_Test {
             
             Collections.sort(v, new bd());
             
+            int curr = 1, prevRank = 1;
+            double prevAvg = -1;
+            
             for(bd x:v){
+                
+                if(Double.parseDouble(x.avg) == prevAvg){
                     
-                x.print();
+                    x.print(prevRank);
+                    
+                } 
+                else{
+                    
+                    x.print(curr);
+                    prevRank = curr;
+                    
+                }
+                prevAvg = Double.parseDouble(x.avg);
+                curr++;
                 
             }
             

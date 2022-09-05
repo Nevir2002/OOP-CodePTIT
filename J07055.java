@@ -58,7 +58,7 @@ class bd implements Comparator<bd>{
     
 }
 
-public class AA_Test {
+public class J07055 {
 
     public static void main(String arg[]){
  

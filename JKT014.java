@@ -6,7 +6,7 @@ import java.util.*;
 
 //@author Nevir2002
 
-public class AA_Test{
+public class JKT014{
 
     public static void main(String arg[]){
 

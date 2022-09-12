@@ -5,7 +5,7 @@ import java.util.*;
 
 //@author Nevir2002
 
-public class AA_Test {
+public class J02035 {
 
     public static void main(String arg[]){
 

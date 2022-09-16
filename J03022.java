@@ -7,7 +7,7 @@ import java.util.*;
 
 
 
-public class AA_Test {
+public class J03022 {
 
     public static void main(String arg[]){
 

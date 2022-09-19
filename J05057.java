@@ -51,7 +51,7 @@ class TS{
     
 }
 
-public class AA_Test {
+public class J05057 {
 
     public static void main(String arg[]){
 

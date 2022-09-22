@@ -7,6 +7,7 @@ class Fraction{
     
     private long numerator, denominator;
     
+    Fraction(){}
     Fraction(long a, long b){
         
         numerator = a;

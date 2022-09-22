@@ -7,6 +7,7 @@ class Fraction{
     
     private BigInteger numerator, denominator;
     
+    Fraction(){}
     Fraction(String x, String y){
     
         BigInteger a = new BigInteger(x);

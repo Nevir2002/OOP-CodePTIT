@@ -33,7 +33,7 @@ class NV5006{
     
 }
 
-public class AA_Test {
+public class J05006 {
 
     public static void main(String arg[]){
 

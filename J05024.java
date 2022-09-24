@@ -61,7 +61,7 @@ class SV5024{
     
 }
 
-public class AA_Test {
+public class J05024 {
 
     public static void main(String arg[]){
 

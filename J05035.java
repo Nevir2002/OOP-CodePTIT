@@ -38,7 +38,7 @@
 
     }
 
-    public class AA_Test {
+    public class J05035 {
 
         public static void main(String arg[]){
 

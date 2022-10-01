@@ -57,7 +57,7 @@ class P05047 implements Comparator<P05047>{
     
 }
 
-public class AA_Test {
+public class J05047 {
 
     public static void main(String arg[]){
 

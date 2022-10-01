@@ -5,16 +5,16 @@ import java.util.*;
 
 //@author Nevir2002
 
-class P05047 implements Comparator<P05047>{
+class P05046{
     
     String id,name;
     int add,total;
     static Map<String,Integer> mp = new HashMap<>();
 
-    public P05047() {
+    public P05046() {
     }
 
-    public P05047(String name, int quantity, int cost) {
+    public P05046(String name, int quantity, int cost) {
         String[] x = name.split(" ");
         String prodID = "";
         int i = 0;
@@ -42,13 +42,6 @@ class P05047 implements Comparator<P05047>{
     }
     
     @Override
-    public int compare(P05047 a, P05047 b){
-        
-        return b.add-a.add;
-        
-    }
-    
-    @Override
     public String toString(){
         
         return String.format("%s %s %d %d", id,name,add,total);
@@ -57,25 +50,20 @@ class P05047 implements Comparator<P05047>{
     
 }
 
-public class AA_Test {
+public class J05046 {
 
     public static void main(String arg[]){
 
         Scanner sc = new Scanner(System.in);
 
         int t = Integer.parseInt(sc.nextLine());
-        Vector<P05047> v = new Vector<>();
+
         while(t-->0){
 
-            v.add(new P05047(sc.nextLine(),Integer.parseInt(sc.nextLine()),Integer.parseInt(sc.nextLine())));
+            System.out.println(new P05046(sc.nextLine(),Integer.parseInt(sc.nextLine()),Integer.parseInt(sc.nextLine())));
 
         }
-        Collections.sort(v,new P05047());
-        for(P05047 x:v){
-            
-            System.out.println(x);
-            
-        }
+
         sc.close();
     }
 

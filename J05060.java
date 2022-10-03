@@ -5,17 +5,17 @@ import java.util.*;
 
 //@author Nevir2002
 
-class PH05061{
+class PH05060{
     
     String id,name,rating;
     int age;
     int total;
     static int idx = 1;
 
-    public PH05061() {
+    public PH05060() {
     }
 
-    public PH05061(String name, String dob, double p1, double p2) {
+    public PH05060(String name, String dob, double p1, double p2) {
         id = String.format("PH%02d", idx++);
         this.name = name;
         age = 2020-Integer.parseInt(dob.substring(6))+1;
@@ -40,7 +40,7 @@ class PH05061{
     
 }
 
-public class AA_Test {
+public class J05060 {
 
     public static void main(String arg[]){
 
@@ -49,7 +49,7 @@ public class AA_Test {
         int t = Integer.parseInt(sc.nextLine());
         while(t-->0){
 
-            System.out.println(new PH05061(sc.nextLine(),sc.nextLine(),Double.parseDouble(sc.nextLine()),Double.parseDouble(sc.nextLine())));
+            System.out.println(new PH05060(sc.nextLine(),sc.nextLine(),Double.parseDouble(sc.nextLine()),Double.parseDouble(sc.nextLine())));
 
         }
 

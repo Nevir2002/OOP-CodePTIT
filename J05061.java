@@ -5,7 +5,7 @@ import java.util.*;
 
 //@author Nevir2002
 
-class PH05061{
+class PH05061 implements Comparator<PH05061>{
     
     String id,name,rating;
     int age;
@@ -32,6 +32,13 @@ class PH05061{
     }
     
     @Override
+    public int compare(PH05061 a, PH05061 b){
+        
+        return b.total - a.total;
+        
+    }
+    
+    @Override
     public String toString(){
         
         return String.format("%s %s %d %d %s", id, name, age, total, rating);
@@ -40,17 +47,25 @@ class PH05061{
     
 }
 
-public class AA_Test {
+public class J05061 {
 
     public static void main(String arg[]){
 
         Scanner sc = new Scanner(System.in);
 
         int t = Integer.parseInt(sc.nextLine());
+        Vector<PH05061> v = new Vector<>();
         while(t-->0){
 
-            System.out.println(new PH05061(sc.nextLine(),sc.nextLine(),Double.parseDouble(sc.nextLine()),Double.parseDouble(sc.nextLine())));
+            v.add(new PH05061(sc.nextLine(),sc.nextLine(),Double.parseDouble(sc.nextLine()),Double.parseDouble(sc.nextLine())));
 
+        }
+        
+        Collections.sort(v,new PH05061());
+        for(PH05061 x:v){
+            
+            System.out.println(x);
+            
         }
 
         sc.close();

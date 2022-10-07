@@ -1,73 +1,153 @@
 package codeptit;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Scanner;
+import java.util.Vector;
+class MonHoc{
+    String maMon,TenMon;
+    int soTin;
 
-//@author Nevir2002
-
-class PH05061{
-    
-    String id,name,rating;
-    int age;
-    int total;
-    static int idx = 1;
-
-    public PH05061() {
-    }
-
-    public PH05061(String name, String dob, double p1, double p2) {
-        id = String.format("PH%02d", idx++);
-        this.name = name;
-        age = 2020-Integer.parseInt(dob.substring(6))+1;
-        double bonus = 0;
-        if(p1 >= 8 && p2 >= 8) bonus = 1;
-        else if(p1 >= 7.5 && p2 >= 7.5) bonus = 0.5;
-        total = Math.min(10,(int) Math.round((p1+p2)/2+bonus));
-        if(total >= 9) rating = "Xuat sac";
-        else if(total >= 8) rating = "Gioi";
-        else if(total >= 7) rating = "Kha";
-        else if(total >= 5) rating = "Trung binh";
-        else rating = "Truot";
-        
-    }
-    
-    @Override
-    public String toString(){
-        
-        return String.format("%s %s %d %d %s", id, name, age, total, rating);
-        
+    public MonHoc(String maMon, String TenMon, int soTin) {
+        this.maMon = maMon;
+        this.TenMon = TenMon;
+        this.soTin = soTin;
     }
     
 }
+class SinhVien{
+    String msv,hoTen,lop,email;
 
-public class AA_Test {
+    public SinhVien(String msv, String hoTen, String lop, String email) {
+        this.msv = msv;
+        this.hoTen = hoTen;
+        this.lop = lop;
+        this.email = email;
+    }
+    
+}
+class BangDiem{
+    String msv,maMon,tenSV,lop;
+    double d;
 
-    public static void main(String arg[]){
-
-        Scanner sc = new Scanner(System.in);
-
-        int t = Integer.parseInt(sc.nextLine());
-        while(t-->0){
-
-            System.out.println(new PH05061(sc.nextLine(),sc.nextLine(),Double.parseDouble(sc.nextLine()),Double.parseDouble(sc.nextLine())));
-
+    public BangDiem(String msv, String maMon, String tenSV, String lop, double d) {
+        this.msv = msv;
+        this.maMon = maMon;
+        String[] w = tenSV.split("\\s+");
+        this.tenSV = "";
+        for(String x : w){
+            if(x.length() == 0)
+                continue;
+            this.tenSV+= x.substring(0, 1).toUpperCase()+x.substring(1).toLowerCase()+" ";
         }
-
-        sc.close();
+        this.tenSV = this.tenSV.substring(0, this.tenSV.length()-1);
+        this.lop = lop;
+        this.d = d;
     }
-
+    public void print(){
+        System.out.println(msv+" "+tenSV+" "+lop);
+        if(Math.round(d) == d ){
+            System.out.printf("%.0f",d);
+            
+        }else{
+            System.out.printf("%.1f",d);
+        }
+        System.out.println("");
+    }
 }
+class cmpm implements Comparator<BangDiem>{
 
-//3
-//Doan Thi Kim
-//13/03/1982
-//8
-//9.5
-//Dinh Thi Ngoc Ha
-//03/09/1996
-//6.5
-//8
-//Tran Thanh Mai
-//12/09/2004
-//8
-//9
+    @Override
+    public int compare(BangDiem o1, BangDiem o2) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if(o2.d != o1.d)
+            return Double.compare(o2.d, o1.d);
+        return o1.msv.compareTo(o2.msv);
+    }
+    
+}
+public class AA_Test {
+    
+    public static void main(String[] args) throws IOException {
+        try{
+            Vector<SinhVien> vSV = new Vector<>();
+            Vector<MonHoc> vMH = new Vector<>();
+            Vector<BangDiem> vBD = new Vector<>();
+            FileReader fr1 = new FileReader("SINHVIEN.in");
+            BufferedReader bf1 = new BufferedReader(fr1);
+            int n1 = Integer.parseInt(bf1.readLine());
+            while(n1-->0){
+                String msv = bf1.readLine();
+                String tenSV = bf1.readLine();
+                String lop = bf1.readLine();
+                String email = bf1.readLine();
+                SinhVien sv = new SinhVien(msv, tenSV, lop, email);
+                vSV.add(sv);
+            }
+            FileReader fr2 = new FileReader("MONHOC.in");
+            BufferedReader bf2 = new BufferedReader(fr2);
+            int n2 = Integer.parseInt(bf2.readLine());
+            while(n2-->0){
+                String maMon = bf2.readLine();
+                String tenMon = bf2.readLine();
+                int soTin = Integer.parseInt(bf2.readLine());
+                MonHoc m = new MonHoc(maMon, tenMon, soTin);
+                vMH.add(m);
+                
+            }
+            FileReader fr3 = new FileReader("BANGDIEM.in");
+            BufferedReader bf3 = new BufferedReader(fr3);
+            int n3 = Integer.parseInt(bf3.readLine());
+            while(n3-->0){
+                String s = bf3.readLine();
+                String[] w = s.split("\\s+");
+                String msv = "";
+                String maMon = "";
+                double d = 0;
+                Vector<String> vS = new Vector<>();
+                for(String x:w){
+                    if(x.length() == 0)
+                        continue;
+                    vS.add(x);
+                }
+                msv = vS.get(0);
+                maMon = vS.get(1);
+                d = Double.parseDouble(vS.get(2));
+                String tenSV = "";
+                String lop = "";
+                for(SinhVien x:vSV){
+                    if(x.msv.equals(msv)){
+                        tenSV = x.hoTen;
+                        lop = x.lop;
+                        break;
+                    }
+                }
+                BangDiem bd = new BangDiem(msv, maMon, tenSV, lop, d);
+                vBD.add(bd);
+            }
+            int dem = Integer.parseInt(bf3.readLine());
+            Collections.sort(vBD,new cmpm());
+            while(dem-->0){
+                String mm = bf3.readLine();
+                System.out.print("BANG DIEM MON ");
+                for(MonHoc mh : vMH){
+                    if(mh.maMon.equals(mm)){
+                        System.out.println(mh.TenMon+":");
+                        break;
+                    }
+                }
+                for(BangDiem x: vBD){
+                    if(x.maMon.equals(mm)){
+                        x.print();
+                    }
+                }
+            }
+            
+        }catch(IOException e){
+            System.out.println(e);
+        }
+    }
+}

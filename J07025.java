@@ -56,7 +56,7 @@ class KH07025 implements Comparator<KH07025>{
     
 }
 
-public class AA_Test {
+public class J07025 {
 
     public static void main(String arg[]) throws FileNotFoundException{
 

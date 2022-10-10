@@ -5,21 +5,23 @@ import java.util.*;
 
 //@author Nevir2002
 
-class KH07025 implements Comparator<KH07025>{
+class SV07018{
     
-    String id,name,gender,dob,address;
+    String id,name,dob,cls;
+    double gpa;
     static int idx = 1;
 
-    public KH07025() {
+    public SV07018() {
     }
 
-    public KH07025(String name, String gender, String dob, String address) {
-        this.id = String.format("KH%03d",idx++);
+    public SV07018(String name, String cls, String dob, double gpa) {
+        this.id = String.format("B20DCCN%03d",idx++);
         this.name = fix(name);
-        this.gender = gender;
         this.dob = full(dob);
-        this.address = address;
+        this.cls = cls;
+        this.gpa = gpa;
     }
+    
     private String fix(String s){
         
         String[] x = s.toLowerCase().split(" ");
@@ -37,43 +39,28 @@ class KH07025 implements Comparator<KH07025>{
         return String.format("%s/%s/%s",arr[0],arr[1],arr[2]);
         
     }
-    @Override
-    public int compare(KH07025 a,KH07025 b){
-        
-        String[] s1 = a.dob.split("/");
-        String[] s2 = b.dob.split("/");
-        String n1 = s1[2] + s1[1] + s1[0];
-        String n2 = s2[2] + s2[1] + s2[0];
-        return n1.compareTo(n2);
-        
-    }
+    
     @Override
     public String toString(){
         
-        return String.format("%s %s %s %s %s",id,name,gender,address,dob);
+        return String.format("%s %s %s %s %.2f", id,name,cls,dob,gpa);
         
     }
     
 }
 
-public class AA_Test {
+public class J07018 {
 
     public static void main(String arg[]) throws FileNotFoundException{
 
-        Scanner sc = new Scanner(new File("KHACHHANG.in"));
+        Scanner sc = new Scanner(new File("SINHVIEN.in"));
 
         int t = Integer.parseInt(sc.nextLine());
-        Vector<KH07025> v = new Vector<>();
+
         while(t-->0){
 
-            v.add(new KH07025(sc.nextLine(),sc.nextLine(),sc.nextLine(),sc.nextLine()));
+            System.out.println(new SV07018(sc.nextLine(),sc.nextLine(),sc.nextLine(),Double.parseDouble(sc.nextLine())));;
 
-        }
-        Collections.sort(v,new KH07025());
-        for(KH07025 x:v){
-            
-            System.out.println(x);
-            
         }
 
         sc.close();

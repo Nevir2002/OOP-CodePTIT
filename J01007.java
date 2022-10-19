@@ -1,4 +1,4 @@
-package TestPackage;
+package codeptit;
 
 import java.util.Scanner;
 

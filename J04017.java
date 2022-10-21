@@ -83,7 +83,7 @@ class Matrix{
     
 }
 
-public class MainClass {
+public class J04017 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

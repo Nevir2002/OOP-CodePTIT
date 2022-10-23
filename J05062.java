@@ -47,7 +47,7 @@ class SV05062 implements Comparable<SV05062>{
     
 }
 
-public class MainClass {
+public class J05062 {
 
     public static void main(String[] args){
 

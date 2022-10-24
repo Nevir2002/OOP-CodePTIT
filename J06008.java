@@ -85,7 +85,7 @@ class GV06008{
     
 }
 
-public class MainClass {
+public class J06008 {
 
     public static void main(String[] args){
 

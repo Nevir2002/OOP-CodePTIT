@@ -7,7 +7,7 @@ import java.util.*;
 
 
 
-public class MainClass {
+public class J07077 {
 
     public static void main(String[] args) throws Exception{
 

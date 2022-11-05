@@ -2,13 +2,13 @@ package codeptit;
 
 import java.util.*;
 
-class Student{
+class Student04006{
     
     String name,cls,dob,id;
     float gpa;
     static int n = 1;
     
-    Student(String a, String b, String c, float d){
+    Student04006(String a, String b, String c, float d){
         
         id = "B20DCCN";
         String s = String.valueOf(n);
@@ -45,7 +45,7 @@ public class J04006 {
 
         Scanner sc = new Scanner(System.in);
         
-        Student obj = new Student(sc.nextLine(), sc.next(), sc.next(), sc.nextFloat());
+        Student04006 obj = new Student04006(sc.nextLine(), sc.next(), sc.next(), sc.nextFloat());
         obj.print();
         
         sc.close();

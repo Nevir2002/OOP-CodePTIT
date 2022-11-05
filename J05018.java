@@ -25,7 +25,7 @@ class HS5018 implements Comparator<HS5018>{
 //        for(String x:s) if(x.length() > 0) grades[i++] = Double.parseDouble(x);
         sum += s[0] + s[1];
         for(double k:s) sum += k;
-        this.avg = Math.round(sum/12*1.0)/1.0;
+        this.avg = Math.round(sum/12*10.0)/10.0;
         if(this.avg >= 9) status = "XUAT SAC";
         else if(this.avg >= 8) status = "GIOI";
         else if(this.avg >= 7) status = "KHA";

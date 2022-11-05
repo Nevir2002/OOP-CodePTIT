@@ -4,12 +4,12 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
-class Pair<T,S>{
+class Pair07017<T,S>{
     
     T n1;
     S n2;
     String s;
-    Pair(T t1, S t2){
+    Pair07017(T t1, S t2){
         
         n1 = t1;
         n2 = t2;
@@ -55,7 +55,7 @@ public class J07017 {
             int n = sc.nextInt();
             boolean check = false;
             for(int i = 2; i <= 2*Math.sqrt(n); i++){
-                Pair<Integer, Integer> p = new Pair<>(i, n-i);
+                Pair07017<Integer, Integer> p = new Pair07017<>(i, n-i);
                 if(p.isPrime()){
                     System.out.println(p);
                     check = true;
